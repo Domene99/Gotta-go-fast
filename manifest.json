@@ -8,7 +8,9 @@
 		{
 			"matches": [
                 "http://www.youtube.com/*",
-                "https://www.youtube.com/*"],
+                "https://www.youtube.com/*",
+                "http://www.coursera.org/*",
+                "https://www.coursera.org/*"],
 			"js": ["content.js"]
 		}
 	],
