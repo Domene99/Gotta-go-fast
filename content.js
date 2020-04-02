@@ -1,20 +1,27 @@
-console.log("Estoy en youtube");
-var inicial = 45, final = 106;
+console.log("Estoy en coursera o youtube");
+var inicial = 45,
+  final = 106,
+  slow = 1.5,
+  fast = 3;
+var preprocessed = false;
 
 function updateSpeed(video) {
-    if (video.currentTime >= inicial &&
-        video.currentTime <= final) {
-            video.playbackRate = 3.5;
-    } else {
-      video.playbackRate = 0.25;
-    }
+  video.playbackRate =
+    video.currentTime >= inicial && video.currentTime <= final ? fast : slow;
+}
+
+function process(video) {
+  var mp4 = video.children[1].src;
+
+  preprocessed = true;
 }
 
 const videoCheck = setInterval(() => {
-    const video = document.querySelector("video");
-    if(video !== null) {
-        updateSpeed(video);
-    }else{
-        console.log("video not found");
-    }
+  const video = document.querySelector("video");
+  if (video !== null) {
+    if (preprocessed) updateSpeed(video);
+    else process(video);
+  } else {
+    console.log("video not found");
+  }
 }, 1000);
